@@ -91,3 +91,10 @@ public class SILab2 {
 
 ![2023-05-30 18_31_41-Book1 - Excel](https://github.com/YOTI876/SI_2023_lab2_211570/assets/82913978/125ce0de-03ed-485d-a612-80c44b6afd7e)
 
+1. user=null; Ќе помине
+
+2. user.getPassword()=null; Првиот нема да помине | Вториот ќе помине
+
+3. user.getEmail()=null; Првиот и вториот нема да поминат | Третиот ке помине
+
+4. user!=null && user.getPassword()=null && user.getEmail()=null; Нема да поминат сите нагоре
