@@ -43,48 +43,48 @@ class User {
     }
 }
 
-public class SILab2 { //1
+public class SILab2 { 
 
-    public static boolean function (User user, List<User> allUsers) { //2
-        if (user==null || user.getPassword()==null || user.getEmail()==null){ //3
-            throw new RuntimeException("Mandatory information missing!"); //4
+    public static boolean function (User user, List<User> allUsers) { 
+        if (user==null || user.getPassword()==null || user.getEmail()==null){ 
+            throw new RuntimeException("Mandatory information missing!"); 
         }
 
-        if (user.getUsername()==null){ //5
-            user.setUsername(user.getEmail()); //6
+        if (user.getUsername()==null){ 
+            user.setUsername(user.getEmail()); 
         }
 
-        int same = 1; //7
-        if (user.getEmail().contains("@") && user.getEmail().contains(".")) { //8
-            same = 0; //9
-            for (int i=0;i<allUsers.size();i++) { //10
-                User existingUser = allUsers.get(i); //11
-                if (existingUser.getEmail() == user.getEmail()) { //12
-                    same += 1; //13
+        int same = 1; 
+        if (user.getEmail().contains("@") && user.getEmail().contains(".")) {
+            same = 0; 
+            for (int i=0;i<allUsers.size();i++) { 
+                User existingUser = allUsers.get(i);
+                if (existingUser.getEmail() == user.getEmail()) { 
+                    same += 1; 
                 }
-                if (existingUser.getUsername() == user.getUsername()) { //14
-                    same += 1; //15
+                if (existingUser.getUsername() == user.getUsername()) { 
+                    same += 1;
                 }
             }
         }
 
-        String specialCharacters="!#$%&'()*+,-./:;<=>?@[]^_`{|}"; //16
-        String password = user.getPassword(); //17
-        String passwordLower = password.toLowerCase(); //18
+        String specialCharacters="!#$%&'()*+,-./:;<=>?@[]^_`{|}"; 
+        String password = user.getPassword(); 
+        String passwordLower = password.toLowerCase(); 
 
-        if (passwordLower.contains(user.getUsername().toLowerCase()) || password.length()<8) { //19
-            return false; //20
+        if (passwordLower.contains(user.getUsername().toLowerCase()) || password.length()<8) { 
+            return false; 
         }
-        else { //21
-            if (!passwordLower.contains(" ")) { //22
-                for (int i = 0; i < specialCharacters.length(); i++) { //23
-                    if (password.contains(String.valueOf(specialCharacters.charAt(i)))) { //24
-                        return same == 0; //25
+        else { 
+            if (!passwordLower.contains(" ")) { 
+                for (int i = 0; i < specialCharacters.length(); i++) {
+                    if (password.contains(String.valueOf(specialCharacters.charAt(i)))) { 
+                        return same == 0; 
                     }
                 }
             }
         }
-        return false; //26
+        return false; 
     }
 
 }
